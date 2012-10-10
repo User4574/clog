@@ -4,9 +4,12 @@ PHP blogging software
 
 Released unlicensed
 
+The software is set up for FS root /var/www/ and Server Root /
+There are examples for /var/www/blog/ and /blog/
+
 Installation:
 * Clone the repo
 * Create a posts directory
 * Edit settings.php to your liking
 * Create a .htpasswd file for posting users
-* Edit .htaccess to point to .htpasswd
+* Edit .htaccess to point to .htpasswd and to perform the redirect correctly
