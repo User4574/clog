@@ -1,0 +1,12 @@
+Clog
+
+PHP blogging software
+
+Released unlicensed
+
+Installation:
+* Clone the repo
+* Create a posts directory
+* Edit settings.php to your liking
+* Create a .htpasswd file for posting users
+* Edit .htaccess to point to .htpasswd
