@@ -19,6 +19,13 @@ a.title {
 	font-weight: normal;
 }
 
+#tweet {
+	font-size: 8pt;
+	font-weight: normal;
+	text-decoration: none;
+	color: black;
+}
+
 a.toplink {
 	font-size: 14pt;
 	letter-spacing: -1px;
