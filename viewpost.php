@@ -3,9 +3,27 @@
 		header("location: $blogRoot");
 		exit(0);
 	}
+	require("settings.php");
+?>
 
-	require("top.php");
+<!DOCTYPE html>
+<html>
 
+<head>
+	<title><?php echo $blogTitle; ?></title>
+	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
+</head>
+
+<body>
+
+<div id="title">
+<h1><?php echo $blogHead; ?></h1>
+<a class="toplink" href="<?php echo $blogRoot; ?>">Home</a>
+<a class="toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
+<a class="toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
+</div>
+
+<?php
 	$file = $_GET['post'];
 	echo "<div>\n";
 	echo "<a class=\"title\" href=\"{$blogRoot}post/" . urlencode($file) . "\">$file <span id=\"perma\">[Permalink]</span></a> ";
