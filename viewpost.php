@@ -16,7 +16,7 @@
 	<title><?php echo $blogTitle; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:url" content="<?php echo "http://{$_SERVER['SERVER_NAME']}{$blogRoot}{$getpost}"; ?>">
+	<meta name="twitter:url" content="<?php echo "http://{$_SERVER['SERVER_NAME']}{$blogRoot}".$_GET['POST']; ?>">
 	<meta name="twitter:title" content="<?php echo $getpost; ?>">
 	<meta name="twitter:description" content="<?php echo substr($post, 0, 196) . "..."; ?>">
 </head>
