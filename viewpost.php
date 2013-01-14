@@ -18,7 +18,7 @@
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:url" content="<?php echo "http://{$_SERVER['SERVER_NAME']}{$blogRoot}".$_GET['post']; ?>">
 	<meta name="twitter:title" content="<?php echo $getpost; ?>">
-	<meta name="twitter:description" content="<?php echo substr($post, 0, 196) . "..."; ?>">
+	<meta name="twitter:description" content="<?php echo preg_replace('/"/', '&quot;', substr($post, 0, 196)) . "..."; ?>">
 </head>
 
 <body>
