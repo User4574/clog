@@ -2,14 +2,22 @@ Clog
 
 PHP blogging software
 
-Released unlicensed
+I wanted an exceptionally small piece of blogging software, where each post was simply a file, the title was the filename and the date was the modified time.
 
-The software is set up for FS root /var/www/ and Server Root /
-There are examples for /var/www/blog/ and /blog/
+This is that piece of software.
 
-Installation:
+Installation (Apache):
 * Clone the repo
 * Create a posts directory
-* Edit settings.php to your liking
+* Move settings.sample to settings.php and configure it
 * Create a .htpasswd file for posting users
-* Edit .htaccess to point to .htpasswd and to perform the redirect correctly
+* Create an Apache virtual host or .htaccess file based on htaccess.sample
+* (Optional) delete .sample files
+
+Instructions (nginx):
+* Clone the repo
+* Create a posts directory
+* Move settings.sample to settings.php and configure it
+* Create a .htpasswd file for posting users
+* Create an nginx server based on nginx.sample
+* (Optional) delete .sample files
