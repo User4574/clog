@@ -9,4 +9,7 @@ $blogPosts = "/var/www/posts/";
 $blogTitle = "My Clog Blog";
 //Header title
 $blogHead = $blogTitle;
+
+//Twitter Creator
+$twitterCreator = "Example";
 ?>
