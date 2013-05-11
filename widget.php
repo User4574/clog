@@ -1,17 +1,19 @@
 <?php
 	require("settings.php");
-?>
+	$inlinemode = isset($_GET['inlinemode']);
+
+	if (!$inlinemode){
+	echo"
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title><?php echo $blogTitle; ?></title>
-	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
+	<link rel='stylesheet' type='text/css' href='<?php echo $blogRoot; ?>styles.css' />
 </head>
+<body class='clog_body'>";
+}
 
-<body class='clog_body'>
-
-<?php
 	$file = "";
 	if (!isset($_GET['post'])) {
 		$ls = explode("\n", `ls -1t {$blogPosts}/`);
@@ -41,8 +43,12 @@
 	$post = preg_replace('/\n/', "<br>\n", $post);
 	echo $post;
 	echo "</div>\n</a>\n\n";
+
+	if (!$inlinemode){
+	echo"
+	</body>
+
+	</html>
+	";
+	}
 ?>
-
-</body>
-
-</html>

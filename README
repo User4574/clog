@@ -2,7 +2,7 @@ Clog
 
 PHP blogging software
 
-I wanted an exceptionally small piece of blogging software, where each post was simply a file, the title was the filename and the date was the modified time.
+User4574 wanted an exceptionally small piece of blogging software, where each post was simply a file, the title was the filename and the date was the modified time.
 
 This is that piece of software.
 
@@ -14,10 +14,10 @@ Installation (Apache):
 * Create an Apache virtual host or .htaccess file based on htaccess.sample
 * (Optional) delete .sample files
 
-Instructions (nginx):
-* Clone the repo
-* Create a posts directory
-* Move settings.sample to settings.php and configure it
-* Create a .htpasswd file for posting users
-* Create an nginx server based on nginx.sample
-* (Optional) delete .sample files
+Nginx instructions removed, not tested on ngingx. for these instructions see User4574's version here: https://github.com/User4574/clog
+
+Recent changes:
+
+
+-Removed the redirect on posts directory
+-Changed all css stuff to prevent other possible css conflicts
