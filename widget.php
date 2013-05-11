@@ -8,8 +8,8 @@
 <html>
 
 <head>
-	<title><?php echo $blogTitle; ?></title>
-	<link rel='stylesheet' type='text/css' href='<?php echo $blogRoot; ?>styles.css' />
+	<title>$blogTitle</title>
+	<link rel='stylesheet' type='text/css' href='$blogRoot/styles.css' />
 </head>
 <body class='clog_body'>";
 }
