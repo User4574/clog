@@ -24,7 +24,8 @@
 	if(isset($_GET['start'])) $start = $_GET['start'];
 	if(isset($_GET['show'])) $show = $_GET['show'];
 
-	$ls = explode("\n", `ls -1t {$blogPosts}`);
+	$lsin = file_get_contents(".lsout");
+	$ls = explode("\n", $lsin);
 
 	function hide($var) {
 		return(!preg_match('/^\./', $var));

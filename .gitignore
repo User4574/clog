@@ -1,4 +1,5 @@
 .htpasswd
+.lsout
 settings.php
 posts/
 *.swp

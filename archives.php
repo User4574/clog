@@ -19,7 +19,8 @@
 </div>
 
 <?php
-	$ls = explode("\n", `ls -1t {$blogPosts}/`);
+	$lsin = file_get_contents(".lsout");
+	$ls = explode("\n", $lsin);
 	foreach($ls as $file) {
 		if (preg_match('/^\./', $file)) continue;
 		if ($file === "") continue;

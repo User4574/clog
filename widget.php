@@ -16,7 +16,8 @@
 
 	$file = "";
 	if (!isset($_GET['post'])) {
-		$ls = explode("\n", `ls -1t {$blogPosts}/`);
+		$lsin = file_get_contents(".lsout");
+		$ls = explode("\n", $lsin);
 		foreach($ls as $entry) {
 			if (preg_match('/^\./', $entry)) continue;
 			if ($entry === "") continue;

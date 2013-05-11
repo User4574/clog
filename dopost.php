@@ -10,6 +10,13 @@
 	$content = $_POST['content'];
 
 	file_put_contents("{$blogPosts}$file", $content);
-
+	
+	//update the ls list
+	$ls = `ls -1t {$blogPosts}/`;
+	$lsout = fopen(".lsout", "w");
+	fputs($lsout, $ls);
+	fclose($lsout);
+	
+	//redirect
 	header("location: {$blogRoot}");
 ?>
