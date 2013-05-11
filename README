@@ -13,6 +13,7 @@ Installation (Apache):
 * Create a .htpasswd file for posting users
 * Create an Apache virtual host or .htaccess file based on htaccess.sample
 * (Optional) delete .sample files
+* Run the updatels.php file (navigate to this file in your web browser) or create a blank .lsout file.
 
 Nginx instructions removed, not tested on ngingx. for these instructions see User4574's version here: https://github.com/User4574/clog
 
