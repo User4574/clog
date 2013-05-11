@@ -1,4 +1,4 @@
-body {
+body.clog_body {
 	font-family: sans-serif;
 	font-size: 12pt;
 	background-color: #FEFEFE;
@@ -6,7 +6,7 @@ body {
 	width: 800px;
 }
 
-a.title {
+a.clog_title {
 	font-weight: bold;
 	font-size: 20pt;
 	margin: 0px 0px 14px;
@@ -14,7 +14,7 @@ a.title {
 	color: black;
 }
 
-#perma {
+span.clog_perma {
 	font-size: 8pt;
 	font-weight: normal;
 }
@@ -26,7 +26,7 @@ a.title {
 	color: black;
 }
 
-a.toplink {
+a.clog_toplink {
 	font-size: 14pt;
 	letter-spacing: -1px;
 	font-family: monospace;
@@ -34,23 +34,23 @@ a.toplink {
 	color: #000000;
 }
 
-a.toplink:hover {
+a.clog_toplink:hover {
 	color: #808080;
 }
 
-blockquote {
+blockquote.clog_quote {
 	background-color: #F4F4F4;
 	padding: 5px 5px;
 	border-radius: 5px;
 }
 
-span.date {
+span.clog_date {
 	margin: 0px 0px 14px;
 	font-size: 12px;
 	float: right;
 }
 
-div {
+div.clog_post_div {
 	clear: both;
 	text-align: justify;
 	border-style: solid;
@@ -62,7 +62,7 @@ div {
 	padding: 5px;
 }
 
-#title {
+div.clog_title {
 	position: relative;
 	background-color: #E0E0E0;
 	text-align: center;

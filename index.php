@@ -9,13 +9,13 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
 </head>
 
-<body>
+<body class='clog_body'>
 
-<div id="title">
+<div class="clog_title">
 <h1><?php echo $blogHead; ?></h1>
-<a class="toplink" href="<?php echo $blogRoot; ?>">Home</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>">Home</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
 </div>
 
 <?php
@@ -35,13 +35,13 @@
 	foreach($limitedls as $file) {
 		if ($file === "") continue;
 
-		echo "<a id=\"$file\">";
-		echo "<div>\n";
-		echo "<a class=\"title\" href=\"{$blogRoot}post/" . urlencode($file) . "\">$file <span id=\"perma\">[Permalink]</span></a>\n";
+		echo "<a id='$file'>";
+		echo "<div class='clog_post_div'>\n";
+		echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$file <span class='clog_perma'>[Permalink]</span></a>\n";
 
 		$stat = stat("{$blogPosts}$file");
 		$date = date('d-m-Y H:i T', $stat['mtime']);
-		echo "<span class=\"date\">$date</span>\n";
+		echo "<span class='clog_date'>$date</span>\n";
 		echo "<br><br>\n";
 
 		$post = file_get_contents("{$blogPosts}$file");
@@ -50,11 +50,11 @@
 		echo "</div>\n</a>\n\n";
 	}
 
-	echo "<div id=\"title\">\n";
+	echo "<div class='clog_title'>\n";
 	$older = $start + $show;
 	$newer = $start - $show;
-	if ($newer >= 0) echo "<a class=\"toplink\" href=\"{$blogRoot}?start=$newer&show=$show\">Newer</a>\n";
-	if ($older <= (count($ls) - 2)) echo "<a class=\"toplink\" href=\"{$blogRoot}?start=$older&show=$show\">Older</a>\n";
+	if ($newer >= 0) echo "<a class='clog_toplink' href='{$blogRoot}?start=$newer&show=$show'>Newer</a>\n";
+	if ($older <= (count($ls) - 2)) echo "<a class='clog_toplink' href='{$blogRoot}?start=$older&show=$show'>Older</a>\n";
 	echo "</div>\n";
 ?>
 </body>

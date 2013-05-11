@@ -22,18 +22,18 @@
 	<meta name="twitter:description" content="<?php echo preg_replace('/"/', '&quot;', substr($post, 0, 196)) . "..."; ?>">
 </head>
 
-<body>
+<body class='clog_body'>
 
-<div id="title">
+<div class='clog_title'>
 <h1><?php echo $blogHead; ?></h1>
-<a class="toplink" href="<?php echo $blogRoot; ?>">Home</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>">Home</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
 </div>
 
 <?php
-	echo "<div>\n";
-	echo "<a class=\"title\" href=\"{$blogRoot}post/" . urlencode($getpost) . "\">$getpost <span id=\"perma\">[Permalink]</span></a> ";
+	echo "<div class='clog_post_div'>\n";
+	echo "<a class='clog_title' href=\"{$blogRoot}post/" . urlencode($getpost) . "\">$getpost <span class='clog_perma'>[Permalink]</span></a> ";
 ?>
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo "$blogTitle: {$getpost}"; ?>" data-url="http://<?php echo "{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}"; ?>">[Tweet]</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -41,7 +41,7 @@
 <?php
 	$stat = stat("{$blogPosts}$getpost");
 	$date = date('d-m-Y H:i T', $stat['mtime']);
-	echo "<span class=\"date\">$date</span>\n";
+	echo "<span class='clog_date'>$date</span>\n";
 	echo "<br><br>\n";
 
 	echo $post;

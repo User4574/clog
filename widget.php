@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
 </head>
 
-<body>
+<body class='clog_body'>
 
 <?php
 	$file = "";
@@ -24,8 +24,8 @@
 	} else
 		$file = preg_replace('/\+/', ' ', $_GET['post']);
 
-	echo "<div>\n";
-	echo "<a class=\"title\" href=\"{$blogRoot}post/" . urlencode($file) . "\">$file <span id=\"perma\">[Permalink]</span></a> ";
+	echo "<div class='clog_post_div'>\n";
+	echo "<a class='clog_title' href=\"{$blogRoot}post/" . urlencode($file) . "\">$file <span class='clog_perma'>[Permalink]</span></a> ";
 ?>
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo "$blogTitle: {$file}"; ?>" data-url="http://<?php echo "{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}"; ?>">[Tweet]</a>
@@ -34,7 +34,7 @@
 <?php
 	$stat = stat("{$blogPosts}$file");
 	$date = date('d-m-Y H:i T', $stat['mtime']);
-	echo "<span class=\"date\">$date</span>\n";
+	echo "<span class='clog_date'>$date</span>\n";
 	echo "<br><br>\n";
 
 	$post = file_get_contents("{$blogPosts}$file");

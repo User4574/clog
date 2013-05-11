@@ -9,16 +9,16 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
 </head>
 
-<body>
+<body class='clog_body'>
 
-<div id="title">
+<div class="clog_title">
 <h1><?php echo $blogHead; ?></h1>
-<a class="toplink" href="<?php echo $blogRoot; ?>">Home</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>">Home</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
+<a class="clog_toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
 </div>
 
-<div>
+<div class='clog_post_div'>
 <form method="post" action="<?php echo $blogRoot; ?>dopost.php">
 <input name="title" size="50">
 <input type="submit" value="Post" />
