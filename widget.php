@@ -27,7 +27,7 @@
 	} else
 		$file = preg_replace('/\+/', ' ', $_GET['post']);
 
-	echo "<div class='clog_post_div'>\n";
+	echo "<div class='clog_post_div_widget'>\n";
 	echo "<a class='clog_title' href=\"{$blogRoot}post/" . urlencode($file) . "\">$file <span class='clog_perma'>[Permalink]</span></a> ";
 ?>
 
