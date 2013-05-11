@@ -18,6 +18,6 @@ Nginx instructions removed, not tested on ngingx. for these instructions see Use
 
 Recent changes:
 
-
+-Added inline mode to widget file (?inlinemode=1)
 -Removed the redirect on posts directory
 -Changed all css stuff to prevent other possible css conflicts
