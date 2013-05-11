@@ -28,7 +28,7 @@
 		$file = preg_replace('/\+/', ' ', $_GET['post']);
 
 	echo "<div class='clog_post_div_widget'>\n";
-	echo "<a class='clog_title' href=\"{$blogRoot}post/" . urlencode($file) . "\">$file <span class='clog_perma'>[Permalink]</span></a> ";
+	echo "<a class='clog_title' href=\"{$blogRoot}viewpost.php?post=" . urlencode($file) . "\">$file <span class='clog_perma'>[Permalink]</span></a> ";
 ?>
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo "$blogTitle: {$file}"; ?>" data-url="http://<?php echo "{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}"; ?>">[Tweet]</a>
