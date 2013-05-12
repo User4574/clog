@@ -69,7 +69,7 @@ div.clog_post_div_widget {
 	border-color: #E0E0E0;
 	border-width: 5px;
 	border-radius: 5px;
-	width: 100%;
+	width: auto;
 	margin: 10px auto;
 	padding: 5px;
 }
