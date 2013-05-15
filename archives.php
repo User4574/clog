@@ -27,7 +27,12 @@
 
 		echo "<a class='clog_link' id='$file'>";
 		echo "<div class='clog_post_div'>\n";
-		echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$file</a>\n";
+		if ($urlstyle == 'ugly'){
+			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$file</a>\n";
+		}
+		if ($urlstyle == 'fancy'){
+			echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($file) . "'>$file</a>\n";
+		}
 
 		$stat = stat("{$blogPosts}$file");
 		$date = date('d-m-Y H:i T', $stat['mtime']);
