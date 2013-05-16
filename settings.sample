@@ -12,4 +12,8 @@ $blogHead = $blogTitle;
 
 //Twitter Creator
 $twitterCreator = "Example";
+
+//Post mode (show or hide the post link)
+$postmode = "show";
+//$postmode = "hide";
 ?>

@@ -15,7 +15,11 @@
 <h1><?php echo $blogHead; ?></h1>
 <a class="clog_toplink" href="<?php echo $blogRoot; ?>">Home</a>
 <a class="clog_toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
-<a class="clog_toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
+<?php
+if ($postmode == "show"){
+	echo "<a class='clog_toplink' href='" . $blogRoot . "post.php'>Post</a>";
+}
+?>
 </div>
 
 <?php
