@@ -16,4 +16,10 @@ $twitterCreator = "Example";
 //Post mode (show or hide the post link)
 $postmode = "show";
 //$postmode = "hide";
+
+//URL style...
+//if you want .../post/example+post then use 'fancy' mode and make proper use of the .htaccess file
+//if you are lazy and don't want to edit an htaccess then you must have ../viewpost.php?post=example+post for this option use 'ugly'
+  $urlstyle="ugly"; //ugly is default, it works quicker!
+//$urlstyle="fancy";
 ?>

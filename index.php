@@ -42,7 +42,12 @@ if ($postmode == "show"){
 
 		echo "<a id='$file'>";
 		echo "<div class='clog_post_div'>\n";
-		echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$file <span class='clog_perma'>[Permalink]</span></a>\n";
+		if ($urlstyle == 'ugly'){
+			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$file <span class='clog_perma'>[Permalink]</span></a>\n";
+		}
+		if ($urlstyle == 'fancy'){
+			echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($file) . "'>$file <span class='clog_perma'>[Permalink]</span></a>\n";
+		}
 
 		$stat = stat("{$blogPosts}$file");
 		$date = date('d-m-Y H:i T', $stat['mtime']);
