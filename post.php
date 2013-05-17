@@ -24,6 +24,7 @@ if ($postmode == "show"){
 
 <div class='clog_post_div'>
 <form method="post" action="<?php echo $blogRoot; ?>dopost.php">
+<?php if (isset($_GET['e'])) {echo "Error! File name not allowed.<br>";}?>
 <input name="title" size="50">
 <input type="submit" value="Post" />
 <textarea rows="20" cols="93" name="content"></textarea>

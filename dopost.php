@@ -8,8 +8,15 @@
 
 	$file = $_POST['title'];
 	$content = $_POST['content'];
+	$nameissafe = preg_match('/^[a-z0-9][a-z0-9 ]*$/i', $file);
 
-	file_put_contents("{$blogPosts}$file", $content);
+	if ($nameissafe){
+		file_put_contents("{$blogPosts}$file", $content);
+	}
+	else{
+		header("location: {$blogRoot}post.php?e=1");
+		exit(0);
+	}
 	
 	//update the ls list
 	$ls = `ls -1t {$blogPosts}/`;
