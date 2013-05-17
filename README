@@ -15,10 +15,12 @@ Installation (Apache):
 * (Optional) delete .sample files
 * Run the updatels.php file (navigate to this file in your web browser) or create a blank .lsout file.
 
-Nginx instructions removed, not tested on ngingx. for these instructions see User4574's version here: https://github.com/User4574/clog
+Nginx instructions removed, not tested on nginx. for these instructions see User4574's version here: https://github.com/User4574/clog
 
 Recent changes:
 
+-Added basic security to the posting system to stop users uploading executable files like "run_this_file_to_murder_this_server.php" :-)
+-Added options for fancy/ugly url modes and show or hide posts link in header
 -Added inline mode to widget file (?inlinemode=1)
 -Removed the redirect on posts directory
 -Changed all css stuff to prevent other possible css conflicts
