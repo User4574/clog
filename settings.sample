@@ -22,4 +22,11 @@ $postmode = "show";
 //if you are lazy and don't want to edit an htaccess then you must have ../viewpost.php?post=example+post for this option use 'ugly'
   $urlstyle="ugly"; //ugly is default, it works quicker!
 //$urlstyle="fancy";
+
+//WYSIWYG editor selection. (Uncomment the one you want, comment the ones you don't)
+//$WYSIWYG="none"; //you just get a box in which you should type your HTML code.
+//$WYSIWYG="miniMCE"; //minimal TinyMCE WYSIWYG, TinyMCE requires that PHP magic quotes be enabled for get-post-cookie
+$WYSIWYG="fullMCE"; //full TinyMCE editor with all the buttons, knobs, switches, levers, pull-chords, latches and (for those in the north) snecks.
+
+//prefer another editor, add it here!
 ?>
