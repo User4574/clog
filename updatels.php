@@ -9,7 +9,7 @@
 require("settings.php");
 $ls = `ls -1 {$blogPosts}/`;
 $lsout = fopen(".lsout", "w");
-fputs($lsout, $ls);
+fputs($lsout, trim($ls));
 fclose($lsout);
 echo ".lsout file generated<br>";
 $files = explode("\n", trim($ls));
