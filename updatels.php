@@ -13,6 +13,9 @@ $files = explode("\n", trim($ls));
 $filenames = array();
 $intvals = array();
 $titles = array();
+
+echo "<br>ls order...<br><br>";
+
 foreach ($files as $file){
 	$f = fopen("$blogPosts" . "$file", 'r');
 	$thisName = trim(fgets($f)); 
@@ -21,6 +24,9 @@ foreach ($files as $file){
 	$intvals[] = intval($file);
 	echo "$blogPosts" . "$file - $thisName<br>";
 }
+
+echo "<br>New order...<br><br>";
+
 rsort($intvals);
 
 $newfilenames = array();
@@ -28,9 +34,14 @@ $newtitles = array();
 
 foreach ($intvals as $val){
 	$index = array_search($val, $filenames);
-	$newfilenames[] = $filenames[$index];
-	$newtitles[] = $titles[$index];	
+	$file = $filenames[$index];
+	$thisName = $titles[$index];
+	echo "$blogPosts" . "$file - $thisName<br>";
+	$newfilenames[] = $file;
+	$newtitles[] = 	$thisName;
 }
+
+echo "<br>Saving files...<br><br>";
 
 $title = implode("\n", $newtitles);
 
@@ -44,7 +55,7 @@ $lsout = fopen(".lsout", "w");
 fputs($lsout, $filen);
 fclose($lsout);
 
-echo ".nmout and .lsout files generated<br> All done.";
+echo ".nmout and .lsout files generated<br><br> All done.";
 ?>	
 </body>
 </html>
