@@ -8,22 +8,43 @@
 <?php
 require("settings.php");
 $ls = `ls -1 {$blogPosts}/`;
-$lsout = fopen(".lsout", "w");
-fputs($lsout, trim($ls));
-fclose($lsout);
-echo ".lsout file generated<br>";
 $files = explode("\n", trim($ls));
-$names = array();
+
+$filenames = array();
+$intvals = array();
+$titles = array();
 foreach ($files as $file){
-	//echo "$blogPosts" . "$file<br>";
 	$f = fopen("$blogPosts" . "$file", 'r');
-	$names[] = trim(fgets($f));
+	$thisName = trim(fgets($f)); 
+	$titles[] = $thisName;
+	$filenames[] = $file;
+	$intvals[] = intval($file);
+	echo "$blogPosts" . "$file - $thisName<br>";
 }
-$name=implode("\n", $names);
+rsort($intvals);
+
+$newfilenames = array();
+$newtitles = array();
+
+foreach ($intvals as $val){
+	$index = array_search($val, $filenames);
+	$newfilenames[] = $filenames[$index];
+	$newtitles[] = $titles[$index];	
+}
+
+$title = implode("\n", $newtitles);
+
 $nameout = fopen(".nmout", "w");
-fputs($nameout, $name);
+fputs($nameout, $title);
 fclose($nameout);
-echo ".nmout file generated<br> All done.";
+
+$filen = implode("\n", $newfilenames);
+
+$lsout = fopen(".lsout", "w");
+fputs($lsout, $filen);
+fclose($lsout);
+
+echo ".nmout and .lsout files generated<br> All done.";
 ?>	
 </body>
 </html>
