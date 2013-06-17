@@ -36,7 +36,8 @@ echo"</head>
 	echo "<div class='clog_post_div_widget'>\n";
 	echo "<a class='clog_title' href=\"{$blogRoot}viewpost.php?post=" . urlencode($file) . "\">$title <span class='clog_perma'>[Permalink]</span></a> ";
 
-	include("sharethis.php");
+	include("sharethiscustom.php");
+	shareButtons("{$blogRoot}post/" . urlencode($file), $title . " - " . $blogTitle);
 
 	$date = date('d-m-Y H:i T', $file);
 	echo "<span class='clog_date'>$date</span>\n";

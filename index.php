@@ -7,6 +7,7 @@
 <head>
 	<title><?php echo $blogTitle; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
+	<?php include("sharescript.php"); ?>
 </head>
 
 <body class='clog_body'>
@@ -36,6 +37,8 @@ if ($postmode == "show"){
 	}
 	array_filter($ls, "hide");
 
+	include("sharethiscustom.php");
+
 	$limitedls = array_slice($ls, $start, $show);
 	foreach($limitedls as $file) {
 		if ($file === "") continue;
@@ -53,6 +56,8 @@ if ($postmode == "show"){
 		if ($urlstyle == 'fancy'){
 			echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($file) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
 		}
+		
+		shareButtons("{$blogRoot}post/" . urlencode($file), $title . " - " . $blogTitle);
 
 		$date = date('d-m-Y H:i T', $file);
 		echo "<span class='clog_date'>$date</span>\n";
