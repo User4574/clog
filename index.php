@@ -55,6 +55,7 @@ if ($postmode == "show"){
 		echo "<br><br>\n";
 
 		$post = file_get_contents("{$blogPosts}$file");
+		$post = preg_replace('/^.+\n/', '', $post);
 		$post = preg_replace('/\n/', "<br>\n", $post);
 		echo $post;
 		echo "</div>\n</a>\n\n";
