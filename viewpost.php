@@ -6,6 +6,7 @@
 	}
 	$getpost = preg_replace('/\+/', ' ', $_GET['post']);
 	$post = file_get_contents("{$blogPosts}$getpost");
+	$title = strtok($post, "\n");
 	$post = preg_replace('/^.+\n/', '', $post);
 	$post = preg_replace('/\n/', "<br>\n", $post);
 ?>
@@ -39,18 +40,17 @@ if ($postmode == "show"){
 <?php
 	echo "<div class='clog_post_div'>\n";
 	if ($urlstyle == 'ugly'){
-			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($getpost) . "'>$getpost <span class='clog_perma'>[Permalink]</span></a>\n";
+			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($getpost) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
 	}
 	if ($urlstyle == 'fancy'){
-		echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($getpost) . "'>$getpost <span class='clog_perma'>[Permalink]</span></a>\n";
+		echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($getpost) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
 	}
 ?>
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo "$blogTitle: {$getpost}"; ?>" data-url="http://<?php echo "{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}"; ?>">[Tweet]</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 <?php
-	$stat = stat("{$blogPosts}$getpost");
-	$date = date('d-m-Y H:i T', $stat['mtime']);
+	$date = date('d-m-Y H:i T', $getpost);
 	echo "<span class='clog_date'>$date</span>\n";
 	echo "<br><br>\n";
 

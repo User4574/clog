@@ -40,23 +40,25 @@ if ($postmode == "show"){
 	foreach($limitedls as $file) {
 		if ($file === "") continue;
 
+		$post = file_get_contents("{$blogPosts}$file");
+		$title = strtok($post, "\n");
+		$post = preg_replace('/^.+\n/', '', $post);
+		$post = preg_replace('/\n/', "<br>\n", $post);
+
 		echo "<a id='$file'>";
 		echo "<div class='clog_post_div'>\n";
 		if ($urlstyle == 'ugly'){
-			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$file <span class='clog_perma'>[Permalink]</span></a>\n";
+			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
 		}
 		if ($urlstyle == 'fancy'){
-			echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($file) . "'>$file <span class='clog_perma'>[Permalink]</span></a>\n";
+			echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($file) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
 		}
 
-		$stat = stat("{$blogPosts}$file");
-		$date = date('d-m-Y H:i T', $stat['mtime']);
+		$date = date('d-m-Y H:i T', $file);
 		echo "<span class='clog_date'>$date</span>\n";
 		echo "<br><br>\n";
 
-		$post = file_get_contents("{$blogPosts}$file");
-		$post = preg_replace('/^.+\n/', '', $post);
-		$post = preg_replace('/\n/', "<br>\n", $post);
+		
 		echo $post;
 		echo "</div>\n</a>\n\n";
 	}
