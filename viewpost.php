@@ -17,11 +17,7 @@
 <head>
 	<title><?php echo $blogTitle; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:url" content="<?php echo "http://{$_SERVER['SERVER_NAME']}{$blogRoot}".$_GET['post']; ?>">
-	<meta name="twitter:creator" content="<?php echo $twitterCreator; ?>">
-	<meta name="twitter:title" content="<?php echo $getpost; ?>">
-	<meta name="twitter:description" content="<?php echo preg_replace('/"/', '&quot;', substr($post, 0, 196)) . "..."; ?>">
+	<?php include("sharescript.php"); ?>
 </head>
 
 <body class='clog_body'>
@@ -45,11 +41,9 @@ if ($postmode == "show"){
 	if ($urlstyle == 'fancy'){
 		echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($getpost) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
 	}
-?>
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo "$blogTitle: {$getpost}"; ?>" data-url="http://<?php echo "{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}"; ?>">[Tweet]</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-<?php
+	include("sharethis.php");
+
 	$date = date('d-m-Y H:i T', $getpost);
 	echo "<span class='clog_date'>$date</span>\n";
 	echo "<br><br>\n";

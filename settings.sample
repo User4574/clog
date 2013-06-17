@@ -10,9 +10,6 @@ $blogTitle = "My Clog Blog";
 //Header title
 $blogHead = $blogTitle;
 
-//Twitter Creator
-$twitterCreator = "Example";
-
 //Post mode (show or hide the post link)
 $postmode = "show";
 //$postmode = "hide";
@@ -27,6 +24,9 @@ $postmode = "show";
 //$WYSIWYG="none"; //you just get a box in which you should type your HTML code.
 //$WYSIWYG="miniMCE"; //minimal TinyMCE WYSIWYG, TinyMCE requires that PHP magic quotes be enabled for get-post-cookie
 $WYSIWYG="fullMCE"; //full TinyMCE editor with all the buttons, knobs, switches, levers, pull-chords, latches and (for those in the north) snecks.
-
 //prefer another editor, add it here!
+
+//Add sharethis widgets to all posts
+$sharethis = false;
+$shareID = "insert your ID here";
 ?>
