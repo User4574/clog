@@ -7,6 +7,11 @@
 <head>
 	<title><?php echo $blogTitle; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $blogRoot; ?>styles.css" />
+	<?php
+	if ($GAEnabled){
+		include("ga.php");
+	}
+	?>
 </head>
 
 <body class='clog_body'>

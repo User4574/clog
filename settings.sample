@@ -27,6 +27,10 @@ $WYSIWYG="fullMCE"; //full TinyMCE editor with all the buttons, knobs, switches,
 //prefer another editor, add it here!
 
 //Add sharethis widgets to all posts
-$sharethis = false;
-$shareID = "insert your ID here";
+$sharethis = false; //change to true to enable the share this buttons
+$shareID = "insert your ID here"; //you must insert you ShareThis public key for sharethis to work properly
+
+//Google analytics
+$GAEnabled = false; //change to true to enable analytics
+$GAID = "insert your ID here"; //This is the "Property ID" that you get from google this is required for this feature to work properly
 ?>
