@@ -1,19 +1,29 @@
-Clog
+SuperClog
 
 PHP blogging software
 
 User4574 wanted an exceptionally small piece of blogging software, where each post was simply a file, the title was the filename and the date was the modified time.
 
-This is that piece of software.
+This was that piece of software.
+
+danieljabailey then wanted to use it and so this is the SuperClog fork.
 
 Installation (Apache):
 * Clone the repo
 * Create a posts directory
 * Move settings.sample to settings.php and configure it
+	* Most of this file explains itself
+	* Page title is what is seen on the page
+	* Header title is what is in the <title> tag
+	* Postmode can be used to show or hide the post link on the header of each page, you may want it to not show up if most people looking at your blog don't post things to it.
+	* If you aren't afraid of apache rewrites then set the URL style to fancy and make sure that the htaccess file works properly, otherwise leave this on ugly.
+	* You can choose an editor, plain text or TinyMCE wysiwyg.
+	* To enable sharethis, get your public key and put it in the $shareID variable, set $sharethis to true ($shareID = "abcd-efgh-ijkl-etc.";)
+	* To enable google analytics, get your "Property ID" in the $GAID variable, set $GAEnabled to true	
 * Create a .htpasswd file for posting users
 * Create an Apache virtual host or .htaccess file based on htaccess.sample
 * (Optional) delete .sample files
-* Run the updatels.php file (navigate to this file in your web browser) or create a blank .lsout file.
+* Run the updatels.php file (navigate to this file in your web browser) make sure that this creates a .lsout file and a .nmout file
 
 Nginx instructions removed, not tested on nginx. for these instructions see User4574's version here: https://github.com/User4574/clog
 
