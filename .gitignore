@@ -3,3 +3,5 @@
 settings.php
 posts/
 *.swp
+*~
+.htaccess

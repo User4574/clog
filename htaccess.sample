@@ -1,12 +1,24 @@
+<Files "dopost.php">
+	AuthName "Restricted Area"
+	AuthType Basic
+	AuthUserFile /var/www/.htpasswd
+	require valid-user
+</Files>
+
+<Files "post.php">
+	AuthName "Restricted Area"
+	AuthType Basic
+	AuthUserFile /var/www/.htpasswd
+	require valid-user
+</Files>
+
+Options +FollowSymlinks
+Options -Multiviews
 RewriteEngine on
 
-RewriteRule ^post/(.*)$ /viewpost.php?post=$1
-#RewriteRule ^post/(.*)$ /blog/viewpost.php?post=$1
+RewriteRule ^sitemap.xml$ sitemap.php
 
-<Files "dopost.php">
-	AuthType Basic
-	AuthName "Secure"
-	AuthUserFile /var/www/.htpasswd
-#	AuthUserFile /var/www/blog/.htpasswd
-	Require Valid-User
-</Files>
+#rewrite subdirectories of post back to the root
+RewriteRule ^post/([^/]+[.].+)$ $1
+#so that we can redirect post to the viewpost.php file
+RewriteRule ^post/(.+)$ viewpost.php?post=$1

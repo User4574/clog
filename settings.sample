@@ -1,15 +1,52 @@
 <?php
+
 //Blog root directory RELATIVE TO SERVER ROOT
 $blogRoot = "/";
 
-//Posts directory RELATIVE TO FILESYSTEM ROOT
-$blogPosts = "/var/www/posts/";
+//URL of site
+$siteURL = "http://example.com";
+
+//Posts directory RELATIVE TO FILESYSTEM ROOT... OR... Relative to the current directory by use of a dot (use wisely)
+$blogPosts = "./posts/";
 
 //Page title
-$blogTitle = "My Clog Blog";
+$blogTitle = "Superclog";
 //Header title
 $blogHead = $blogTitle;
 
-//Twitter Creator
-$twitterCreator = "Example";
+//Your name!
+$Author = "Joe Blogs"; //It's funny because it's a blog
+
+//Post mode (show or hide the post link on the main page)
+//$postmode = "show";
+$postmode = "hide";
+
+//Maximum number of articles to display on one page.
+$MaxArticlesPerPage = 5;
+
+//URL style...
+//if you want .../post/example+post then use 'fancy' mode and make proper use of the .htaccess file
+//if you are lazy and don't want to edit an htaccess then you must have ../viewpost.php?post=123456789 for this option use 'ugly'
+$urlstyle="ugly"; //ugly is default, it works quicker!
+//$urlstyle="fancy";
+
+//WYSIWYG editor selection. (Uncomment the one you want, comment the ones you don't)
+//$WYSIWYG="none"; //you just get a box in which you should type your HTML code.
+//$WYSIWYG="miniMCE"; //minimal TinyMCE WYSIWYG, TinyMCE requires that PHP magic quotes be enabled for get-post-cookie
+$WYSIWYG="fullMCE"; //full TinyMCE editor with all the buttons, knobs, switches, levers, pull-chords, latches and (for those in the north) snecks.
+//prefer another editor, add it here!
+
+//Add sharethis widgets to all posts
+$sharethis = false; //change to true to enable the share this buttons
+$shareID = "CHANGEME"; //you must insert you ShareThis public key for sharethis to work properly
+
+//Google analytics
+$GAEnabled = false; //change to true to enable analytics
+$GAID = "CHANGEME"; //This is the "Property ID" that you get from google this is required for this feature to work properly
+$GAName = "CHANGEME";
+
+//Disqus comment system
+$DisqusEnabled = false;
+$DisqusShortname = "CHANGEME";
+
 ?>
