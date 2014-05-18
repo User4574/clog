@@ -64,7 +64,14 @@ if ($postmode == "show"){
 
 <div class='clog_post_div'>
 <form method="post" action="<?php echo $blogRoot; ?>dopost.php">
-<?php if (isset($_GET['e'])) {echo "Error! File name not allowed.<br>";}?>
+<?php 
+if (isset($_GET['e'])) {
+	switch ($_GET['e']){
+		case 1: echo "<p class='clog_error'>Error!<br>File name not allowed.</p>"; break;
+		case 2: echo "<p class='clog_error'>Error!<br>Couldn't write to post directory. Please check that post directory exists and that you have permission to write to it.</p>";break;
+		case 3: echo "<p class='clog_error'>Error!<br>Couldn't generate post listing files (.lsout and .mnout) please make sure you have permission to write to the blog directory.</p>";break;		
+	}
+}?>
 <input name="title" size="50">
 <input type="submit" value="Post" />
 <textarea rows="20" cols="93" name="content"></textarea>

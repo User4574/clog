@@ -1,14 +1,11 @@
 <?php
 	require("settings.php");
+	require("echo_article.php");
 	if (!isset($_GET['post'])) {
 		header("location: $blogRoot");
 		exit(0);
 	}
-	$getpost = preg_replace('/\+/', ' ', $_GET['post']);
-	$post = file_get_contents("{$blogPosts}$getpost");
-	$title = strtok($post, "\n");
-	$post = preg_replace('/^.+\n/', '', $post);
-	$post = preg_replace('/\n/', "<br>\n", $post);
+	$getpost = $_GET['post'];
 ?>
 
 <!DOCTYPE html>
@@ -39,22 +36,7 @@ if ($postmode == "show"){
 </div>
 
 <?php
-	echo "<div class='clog_post_div'>\n";
-	if ($urlstyle == 'ugly'){
-			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($getpost) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
-	}
-	if ($urlstyle == 'fancy'){
-		echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($getpost) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
-	}
-
-	include("sharethis.php");
-
-	$date = date('d-m-Y H:i T', $getpost);
-	echo "<span class='clog_date'>$date</span>\n";
-	echo "<br><br>\n";
-
-	echo $post;
-	echo "</div>\n</a>\n\n";
+	article($getpost, $dodisqus = true);
 ?>
 
 </body>

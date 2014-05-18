@@ -1,5 +1,6 @@
 <?php
 	require("settings.php");
+	require("echo_article.php");
 	$inlinemode = isset($_GET['inlinemode']);
 
 	if (!$inlinemode){
@@ -28,24 +29,7 @@ echo"</head>
 	} else
 		$file = preg_replace('/\+/', ' ', $_GET['post']);
 
-	$post = file_get_contents("{$blogPosts}$file");
-	$title = strtok($post, "\n");
-	$post = preg_replace('/^.+\n/', '', $post);
-	$post = preg_replace('/\n/', "<br>\n", $post);
-
-	echo "<div class='clog_post_div_widget'>\n";
-	echo "<a class='clog_title' href=\"{$blogRoot}viewpost.php?post=" . urlencode($file) . "\">$title <span class='clog_perma'>[Permalink]</span></a> ";
-
-	include("sharethiscustom.php");
-	shareButtons("{$blogRoot}post/" . urlencode($file), $title . " - " . $blogTitle);
-
-	$date = date('d-m-Y H:i T', $file);
-	echo "<span class='clog_date'>$date</span>\n";
-	echo "<br><br>\n";
-
-	
-	echo $post;
-	echo "</div>\n</a>\n\n";
+	article($file, $dodisqus = false);
 
 	if (!$inlinemode){
 	echo"

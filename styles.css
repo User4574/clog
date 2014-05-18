@@ -74,6 +74,11 @@ div.clog_post_div_widget {
 	padding: 5px;
 }
 
+p{
+	margin-top:0px;
+	margin-bottom:1em;
+}
+
 div.clog_title {
 	position: relative;
 	background-color: #E0E0E0;
@@ -84,4 +89,10 @@ div.clog_title {
 	padding: 25px;
 	border: 0px;
 	border-radius: 10px;
+}
+
+p.clog_error{
+	background-color:#FF8080;
+	padding-top:1em;
+	padding-bottom:1em;	
 }

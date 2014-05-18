@@ -1,5 +1,6 @@
 <?php
 	require("settings.php");
+	require("echo_article.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,7 @@ if ($postmode == "show"){
 
 <?php
 	$start = 0;
-	$show = 5;
+	$show = $MaxArticlesPerPage;
 	if(isset($_GET['start'])) $start = $_GET['start'];
 	if(isset($_GET['show'])) $show = $_GET['show'];
 
@@ -47,39 +48,17 @@ if ($postmode == "show"){
 	$limitedls = array_slice($ls, $start, $show);
 	foreach($limitedls as $file) {
 		if ($file === "") continue;
-
-		$post = file_get_contents("{$blogPosts}$file");
-		$title = strtok($post, "\n");
-		$post = preg_replace('/^.+\n/', '', $post);
-		$post = preg_replace('/\n/', "<br>\n", $post);
-
-		echo "<a id='$file'>";
-		echo "<div class='clog_post_div'>\n";
-		if ($urlstyle == 'ugly'){
-			echo "<a class='clog_title' href='{$blogRoot}viewpost.php?post=" . urlencode($file) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
-		}
-		if ($urlstyle == 'fancy'){
-			echo "<a class='clog_title' href='{$blogRoot}post/" . urlencode($file) . "'>$title <span class='clog_perma'>[Permalink]</span></a>\n";
-		}
-		
-		shareButtons("{$blogRoot}post/" . urlencode($file), $title . " - " . $blogTitle);
-
-		$date = date('d-m-Y H:i T', $file);
-		echo "<span class='clog_date'>$date</span>\n";
-		echo "<br><br>\n";
-
-		
-		echo $post;
-		echo "</div>\n</a>\n\n";
+		article($file, $dodisqus = false);
 	}
 
 	echo "<div class='clog_title'>\n";
 	$older = $start + $show;
 	$newer = $start - $show;
-	if ($newer >= 0) echo "<a class='clog_toplink' href='{$blogRoot}?start=$newer&show=$show'>Newer</a>\n";
-	if ($older <= (count($ls) - 2)) echo "<a class='clog_toplink' href='{$blogRoot}?start=$older&show=$show'>Older</a>\n";
+	if ($older <= (count($ls) - 1)) echo "<a class='clog_toplink' href='{$blogRoot}?start=$older&show=$show'>&lt; Older</a>\n";
+	if ($newer >= 0) echo "<a class='clog_toplink' href='{$blogRoot}?start=$newer&show=$show'>Newer &gt;</a>\n";
 	echo "</div>\n";
 ?>
+<p style='color:white;'>This website uses cookies. If you don't like this, please stop using this site.</p>
 </body>
 
 </html>

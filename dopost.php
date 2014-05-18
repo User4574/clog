@@ -9,14 +9,16 @@
 	$title = $_POST['title'];
 	$file = time();
 	$content = $_POST['content'];
-	$nameissafe = preg_match('/^[a-z0-9][a-z0-9 ]*$/i', $file);
-
-	if ($nameissafe){
-		file_put_contents("{$blogPosts}$file", $title . "\n" . $content);
+	
+	if (file_put_contents("{$blogPosts}$file", $title . "\n" . $content) == false){
+		header("location: {$blogRoot}post.php?e=2");
+		exit(0);			
 	}
-	else{
-		header("location: {$blogRoot}post.php?e=1");
-		exit(0);
+	
+	
+	function error3(){
+		header("location: {$blogRoot}post.php?e=3");	
+		die();
 	}
 	
 $ls = `ls -1 {$blogPosts}/`;
@@ -42,15 +44,15 @@ foreach ($intvals as $val){
 	$newtitles[] = 	$thisName;
 }
 $title = implode("\n", $newtitles);
-$nameout = fopen(".nmout", "w");
+$nameout = fopen(".nmout", "w") or error3();
 fputs($nameout, $title);
 fclose($nameout);
 $filen = implode("\n", $newfilenames);
-$lsout = fopen(".lsout", "w");
+$lsout = fopen(".lsout", "w") or error3();
 fputs($lsout, $filen);
 fclose($lsout);
-
 	
-	//redirect
-	header("location: {$blogRoot}");
+	
+//redirect
+header("location: {$blogRoot}");
 ?>
