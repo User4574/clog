@@ -32,6 +32,7 @@ a.toplink {
 	font-family: monospace;
 	float: bottom;
 	color: #000000;
+  padding: 0px 7px;
 }
 
 a.toplink:hover {
@@ -62,14 +63,27 @@ div {
 	padding: 5px;
 }
 
+div>div {
+  width: 730px;
+  border: none;
+}
+
 #title {
 	position: relative;
 	background-color: #E0E0E0;
 	text-align: center;
 	width: 750px;
 	margin: 10px 0px 5px;
-	font-size: 32px;
 	padding: 25px;
 	border: 0px;
 	border-radius: 10px;
+}
+
+#title>h1 {
+	font-size: 60px;
+}
+
+#title>h2 {
+  font-size: 20px;
+  font-family: monospace;
 }

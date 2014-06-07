@@ -1,5 +1,6 @@
 <?php
 	require("settings.php");
+	require("functions.php");
 
 	if (!isset($_POST['title']) || !isset($_POST['content'])) {
 		header("location: {$blogRoot}post.php");

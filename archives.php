@@ -1,5 +1,6 @@
 <?php
 	require("settings.php");
+  require("functions.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,12 +12,7 @@
 
 <body>
 
-<div id="title">
-<h1><?php echo $blogHead; ?></h1>
-<a class="toplink" href="<?php echo $blogRoot; ?>">Home</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>archives.php">Archives</a>
-<a class="toplink" href="<?php echo $blogRoot; ?>post.php">Post</a>
-</div>
+<?php title(); ?>
 
 <?php
 	$ls = explode("\n", `ls -1t {$blogPosts}/`);
