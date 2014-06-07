@@ -1,10 +1,12 @@
 <?php
+	require("settings.php");
+	require("functions.php");
+
 	if (!isset($_GET['post'])) {
 		header("location: $blogRoot");
 		exit(0);
 	}
-	require("settings.php");
-	require("functions.php");
+
 	$getpost = preg_replace('/\+/', ' ', $_GET['post']);
 	$post = file_get_contents("{$blogPosts}$getpost");
 	$post = preg_replace('/\n/', "<br>\n", $post);
