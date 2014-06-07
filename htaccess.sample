@@ -1,12 +1,11 @@
 RewriteEngine on
 
+RewriteRule ^feed$ /rss.php
 RewriteRule ^post/(.*)$ /viewpost.php?post=$1
-#RewriteRule ^post/(.*)$ /blog/viewpost.php?post=$1
 
 <Files "dopost.php">
 	AuthType Basic
 	AuthName "Secure"
 	AuthUserFile /var/www/.htpasswd
-#	AuthUserFile /var/www/blog/.htpasswd
 	Require Valid-User
 </Files>

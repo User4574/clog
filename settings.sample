@@ -7,9 +7,10 @@ $blogPosts = "/var/www/posts/";
 
 //Page title
 $blogTitle = "My Clog Blog";
-//Header title
-$blogHead = $blogTitle;
+$blogSubTitle = "It's awesome";
 
-//Twitter Creator
+//Author Information
 $twitterCreator = "Example";
+$rssAuthorName = "A. N. Other";
+//$rssAuthorEmail = ""; //optional
 ?>

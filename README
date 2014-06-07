@@ -6,18 +6,16 @@ I wanted an exceptionally small piece of blogging software, where each post was 
 
 This is that piece of software.
 
-Installation (Apache):
+Installation (Common):
 * Clone the repo
 * Create a posts directory
 * Move settings.sample to settings.php and configure it
 * Create a .htpasswd file for posting users
+
+Installation (Apache):
 * Create an Apache virtual host or .htaccess file based on htaccess.sample
 * (Optional) delete .sample files
 
 Instructions (nginx):
-* Clone the repo
-* Create a posts directory
-* Move settings.sample to settings.php and configure it
-* Create a .htpasswd file for posting users
 * Create an nginx server based on nginx.sample
 * (Optional) delete .sample files

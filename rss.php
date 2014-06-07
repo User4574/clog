@@ -37,6 +37,7 @@
     echo "]]></content>\n";
     echo "\t\t<author>\n";
     echo "\t\t\t<name>$rssAuthorName</name>\n";
+    if (isset($rssAuthorEmail)) echo "\t\t\t<email>$rssAuthorEmail</email>\n";
     echo "\t\t</author>\n";
     echo "\t</entry>\n";
 	}
