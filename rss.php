@@ -20,14 +20,15 @@
     $plusfile = preg_replace('/ /', '+', $file);
     $dashfile = preg_replace('/ /', '-', $file);
 		$stat = stat("{$blogPosts}$file");
-		$date = date(DATE_ATOM, $stat['mtime']);
+    $time = $stat['mtime'];
+		$date = date(DATE_ATOM, $time);
     $post = file_get_contents("{$blogPosts}$file");
     $post = preg_replace('/\r?\n/', "<br>\n", $post);
 
     echo "\t<entry>\n";
     echo "\t\t<title>$file</title>\n";
     echo "\t\t<link href=\"http://{$_SERVER['SERVER_NAME']}{$blogRoot}post/{$plusfile}\" />\n";
-    echo "\t\t<id>tag:{$_SERVER['SERVER_NAME']}," . date("Y-m-d") . ":{$blogRoot}{$dashfile}</id>\n";
+    echo "\t\t<id>tag:{$_SERVER['SERVER_NAME']}," . date("Y-m-d", $time) . ":{$blogRoot}{$dashfile}</id>\n";
     echo "\t\t<updated>$date</updated>\n";
     echo "\t\t<summary type=\"html\"><![CDATA[";
     echo summarise($post); 

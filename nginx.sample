@@ -7,8 +7,9 @@ server {
 
    root        /var/www;
 
-   rewrite   \/blog\/feed$         /blog/rss.php;
-   rewrite   \/blog\/post\/(.*)$   /blog/viewpost.php?post=$1;
+   rewrite   \/blog\/feed\/?$         /blog/rss.php;
+   rewrite   \/blog\/posts\/?$        /blog/archives.php;
+   rewrite   \/blog\/post\/(.*)$      /blog/viewpost.php?post=$1;
 
    location /dopost.php {
       auth_basic           "Login to post";

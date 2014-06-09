@@ -1,6 +1,7 @@
 RewriteEngine on
 
-RewriteRule ^feed$ /rss.php
+RewriteRule ^feed/?$    /rss.php
+RewriteRule ^posts/?$   /archives.php
 RewriteRule ^post/(.*)$ /viewpost.php?post=$1
 
 <Files "dopost.php">
